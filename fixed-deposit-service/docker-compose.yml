@@ -1,0 +1,55 @@
+version: '3'
+services:
+    fixed-deposit-app:
+        container_name: fixed-deposit-app
+        image: ramtechdocker/fixed-deposit-service
+        restart: on-failure
+        ports: 
+            - 10666:9097
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql 
+            - discovery-server
+            - interest-rate-app
+    interest-rate-app:
+        container_name: interest-rate-app
+        image: ramtechdocker/interest-rate-service
+        restart: on-failure
+        ports: 
+            - 10555:9096
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql
+            - discovery-server
+    discovery-server:
+        container_name: discovery-server
+        image: ramtechdocker/discovery-server-service
+        restart: on-failure
+        ports: 
+            - 8761:8761
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql
+    docker-mysql:
+        container_name: docker-mysql
+        image: mysql
+        restart: always
+        environment: 
+            MYSQL_DATABASE: fixeddepositdb2
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_HOST: '%'
+        volumes:
+            - ./sql:/docker-entrypoint-initdb.d
+        ports:
+            - 6666:3306
+        security_opt:
+            - seccomp:unconfined
+        healthcheck:
+            test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES \""
+            interval: 4s
+            timeout: 20s
+            retries: 5
+        
