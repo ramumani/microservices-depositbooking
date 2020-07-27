@@ -25,7 +25,7 @@ public class SpringFoxSwagger2Config {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfo("Fixed Deposit - Microservices", "Stores/retrives Fixed deposits and calls Interest rate API for fetching real-time rates using service discovery", "API TOS",
+		return new ApiInfo("Fixed Deposit - Microservices", "Stores/retrives Fixed deposits and calls Interest rate API for fetching real-time rates using service discovery with Eureka.", "API TOS",
 				"Terms of service", new Contact("Ramu Mani", "www.ramumani.com", "ramu.mani@company.com"),
 				"License of API", "API license URL", Collections.emptyList());
 	}
