@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ramumani.model.InterestRate;
 import com.ramumani.repo.InterestRateRepo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping(path = "/interestrateapi")
+@Slf4j
 public class InterestRateController {
 	
 	@Autowired
@@ -22,6 +25,7 @@ public class InterestRateController {
 
 	@GetMapping(path = "/{tenure}")
 	public Optional<InterestRate> getInterestRates(@PathVariable("tenure") String tenure) {
+		log.debug("tenure:"+tenure);
 		return interestRateRepo.findByTenure(tenure);
 		
 	}

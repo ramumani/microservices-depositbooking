@@ -1,0 +1,26 @@
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    fixed-deposit-client:
+      path: /fixeddepositapi/**
+      serviceId: fixed-deposit-service
+      stripPrefix: false
+    interest-rate-client:
+      path: /interestrateapi/**
+      serviceId: interest-rate-service
+      stripPrefix: false
+
+#eureka:
+  #client:
+    #serviceUrl:
+      #defaultZone: http://localhost:8761
+  #instance:
+    #hostname: localhost
+
+server:
+  port: 8079
+
+spring:
+  application:
+    name: zuul-service
