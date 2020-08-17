@@ -9,4 +9,5 @@ Swagger<br>
 Eureka<br>
 Zuul API gateway<br>
 Docker<br>
-Docker Compose
+Docker Compose<br>
+Jenkins (pipeline)
