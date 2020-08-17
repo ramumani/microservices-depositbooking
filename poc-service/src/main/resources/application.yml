@@ -1,0 +1,7 @@
+server:
+  port: 9099
+  servlet:
+    context-path: /pocservice
+spring:
+  application:
+    name: poc-service
