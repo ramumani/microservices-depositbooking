@@ -12,6 +12,7 @@
 	<artifactId>poc-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>poc-service</name>
+	<packaging>war</packaging>
 	<description>Spring Boot Microservices for POCs</description>
 
 	<properties>
