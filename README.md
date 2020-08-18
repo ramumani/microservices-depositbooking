@@ -1,4 +1,4 @@
-# microservices-depositbooking
+# microservices-POC
 
 Microservices - Dockerized App for Fixed deposit booking<br>
 Tech stack:<br>
@@ -9,4 +9,6 @@ Swagger<br>
 Eureka<br>
 Zuul API gateway<br>
 Docker<br>
-Docker Compose
+Docker Compose<br>
+GitHub - Webhook<br>
+Jenkins (Pipeline)
