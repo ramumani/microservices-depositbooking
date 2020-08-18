@@ -1,4 +1,4 @@
-# microservices-depositbooking
+# microservices-POC
 
 Microservices - Dockerized App for Fixed deposit booking<br>
 Tech stack:<br>
