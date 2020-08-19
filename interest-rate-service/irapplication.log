@@ -3004,3 +3004,19 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2020-08-19 09:32:14.173  INFO 7404 --- [RMI TCP Connection(30)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
 2020-08-19 09:32:16.065  INFO 7404 --- [RMI TCP Connection(30)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-08-19 09:32:16.076  INFO 7404 --- [RMI TCP Connection(30)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-08-19 10:03:23.450  INFO 8640 --- [main] c.r.InterestRateServiceApplicationTests  : No active profile set, falling back to default profiles: default
+2020-08-19 10:04:45.842  INFO 8640 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-19 10:04:56.023  INFO 8640 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-08-19 10:05:09.153  WARN 8640 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-19 10:05:10.168  INFO 8640 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-19 10:05:19.747  INFO 8640 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-19 10:05:26.749  INFO 8640 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-19 10:05:27.500  INFO 8640 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2020-08-19 10:05:29.138  INFO 8640 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-08-19 10:05:34.891  INFO 8640 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-19 10:05:36.166  INFO 8640 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-08-19 10:05:36.354  INFO 8640 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-08-19 10:05:36.479  INFO 8640 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-08-19 10:05:38.101  INFO 8640 --- [main] c.r.InterestRateServiceApplicationTests  : Started InterestRateServiceApplicationTests in 196.684 seconds (JVM running for 207.024)
+2020-08-19 10:05:39.132  INFO 8640 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-08-19 10:05:39.991  INFO 8640 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
