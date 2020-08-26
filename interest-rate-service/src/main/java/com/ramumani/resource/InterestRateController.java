@@ -2,6 +2,8 @@ package com.ramumani.resource;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -37,7 +39,7 @@ public class InterestRateController {
 	}
 	
 	@PostMapping(path = "/interestrates")
-	public InterestRate saveInterestRate(@RequestBody InterestRate interestRate) {
+	public InterestRate saveInterestRate(@Valid @RequestBody InterestRate interestRate) {
 		 return interestRateRepo.save(interestRate);
 	}
 	
