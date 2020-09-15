@@ -32,7 +32,7 @@ public class InterestRateController {
 	String lsData;
 
 	@GetMapping(path = "/{tenure}")
-	public Optional<InterestRate> getInterestRates(@PathVariable("tenure") String tenure) {
+	public Optional<InterestRate> getInterestRates(@Valid @PathVariable("tenure") String tenure) {
 		log.debug("tenure:"+tenure);
 		return interestRateRepo.findByTenure(tenure);
 		

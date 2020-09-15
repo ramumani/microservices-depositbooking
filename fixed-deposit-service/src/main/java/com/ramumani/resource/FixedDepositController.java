@@ -3,6 +3,8 @@ package com.ramumani.resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class FixedDepositController {
 	private String gsINTEREST_RATE_URL; 
 
 	@PostMapping("/fixeddeposits")
-	public FixedDeposit saveFixedDeposit(@RequestBody FixedDeposit fixedDeposit) {
+	public FixedDeposit saveFixedDeposit(@Valid @RequestBody FixedDeposit fixedDeposit) {
 		FixedDepositService fixedDepositService = new FixedDepositService();
 		logger.debug("gsINTEREST_RATE_URL:" + gsINTEREST_RATE_URL);
 		InterestRate interestRate = restTemplate
