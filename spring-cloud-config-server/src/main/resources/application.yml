@@ -1,0 +1,18 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ramumani/microservices-depositbooking
+          search-paths:
+          - configuration/{application}/
+          - configuration/
