@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: interest-rate-service
+  cloud:
+    config:
+      uri:  192.168.99.100:8888
+      enabled: true      
+      fail-fast: true
