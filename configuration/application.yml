@@ -2,4 +2,4 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://172.19.0.4:8761/eureka/      
+      defaultZone: http://localhost:8761/eureka/      
