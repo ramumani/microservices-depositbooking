@@ -33,6 +33,17 @@ services:
             WAIT_HOSTS: mysql:3306
         depends_on: 
             - docker-mysql
+            - spring-cloud-config-server
+    spring-cloud-config-server:
+        container_name: spring-cloud-config-server
+        image: ramtechdocker/spring-cloud-config-server
+        restart: on-failure
+        ports: 
+            - 8888:8888
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql
     docker-mysql:
         container_name: docker-mysql
         image: mysql
