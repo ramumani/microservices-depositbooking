@@ -23,6 +23,7 @@ services:
         depends_on: 
             - docker-mysql
             - discovery-server
+            - spring-cloud-config-server
     discovery-server:
         container_name: discovery-server
         image: ramtechdocker/discovery-server-service
