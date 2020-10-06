@@ -1,15 +1,15 @@
-zuul:
-  #Service will be mapped under the /api URI
-  prefix: /api
-  routes:
-    fixed-deposit-client:
-      path: /fixeddepositapi/**
-      serviceId: fixed-deposit-service
-      stripPrefix: false
-    interest-rate-client:
-      path: /interestrateapi/**
-      serviceId: interest-rate-service
-      stripPrefix: false
+#zuul:
+#  #Service will be mapped under the /api URI
+#  prefix: /api
+#  routes:
+#    fixed-deposit-client:
+#      path: /fixeddepositapi/**
+#      serviceId: fixed-deposit-service
+#      stripPrefix: false
+#    interest-rate-client:
+#      path: /interestrateapi/**
+#      serviceId: interest-rate-service
+#      stripPrefix: false
 
 #eureka:
   #client:
@@ -18,9 +18,9 @@ zuul:
   #instance:
     #hostname: localhost
 
-server:
-  port: 8079
-
-spring:
-  application:
-    name: zuul-service
+#server:
+#  port: 8079
+#
+#spring:
+#  application:
+#    name: zuul-service
