@@ -1,5 +1,18 @@
 version: '3'
 services:
+    zuul-gateway-app:
+        container_name: zuul-gateway-app
+        image: ramtechdocker/zuul-service
+        restart: on-failure
+        ports: 
+            - 10777:8079
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql
+            - spring-cloud-config-server 
+            - discovery-server
+            - interest-rate-app
     fixed-deposit-app:
         container_name: fixed-deposit-app
         image: ramtechdocker/fixed-deposit-service
@@ -9,7 +22,8 @@ services:
         environment: 
             WAIT_HOSTS: mysql:3306
         depends_on: 
-            - docker-mysql 
+            - docker-mysql
+            - spring-cloud-config-server 
             - discovery-server
             - interest-rate-app
     interest-rate-app:
@@ -22,8 +36,8 @@ services:
             WAIT_HOSTS: mysql:3306
         depends_on: 
             - docker-mysql
-            - discovery-server
             - spring-cloud-config-server
+            - discovery-server            
     discovery-server:
         container_name: discovery-server
         image: ramtechdocker/discovery-server-service
