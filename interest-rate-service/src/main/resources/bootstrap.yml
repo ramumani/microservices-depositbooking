@@ -1,6 +1,7 @@
 spring:
   application:
     name: interest-rate-service
+  profiles: dev
   cloud:
     config:
       uri: http://192.168.99.100:8888
