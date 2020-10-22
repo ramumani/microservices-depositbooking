@@ -2,6 +2,7 @@ package com.ramumani.resource;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.ramumani.dto.InterestRate;
+import com.ramumani.feign.client.InterestRateFeignClient;
 import com.ramumani.model.FixedDeposit;
 import com.ramumani.repository.FixedDepositRepository;
 import com.ramumani.service.FixedDepositService;
@@ -33,6 +35,9 @@ public class FixedDepositController {
 	@Autowired
 	RestTemplate restTemplate;
 	
+	@Autowired
+	InterestRateFeignClient interestRateFeignClient;
+	
 	@Value("${FD.INTEREST_RATE_URL}")
 	private String gsINTEREST_RATE_URL; 
 
@@ -40,9 +45,14 @@ public class FixedDepositController {
 	public FixedDeposit saveFixedDeposit(@Valid @RequestBody FixedDeposit fixedDeposit) {
 		FixedDepositService fixedDepositService = new FixedDepositService();
 		logger.debug("gsINTEREST_RATE_URL:" + gsINTEREST_RATE_URL);
-		InterestRate interestRate = restTemplate
-				.getForObject(gsINTEREST_RATE_URL + fixedDeposit.getTenure(), InterestRate.class);
-		BigDecimal lbdInterestRate = interestRate.getRate();
+		
+		  //logger.debug("before calling Rest Template");
+		  //InterestRate interestRate = restTemplate .getForObject(gsINTEREST_RATE_URL +fixedDeposit.getTenure(), InterestRate.class); 
+		  //BigDecimal lbdInterestRate = interestRate.getRate();
+		 
+		logger.debug("before calling Feign Client");
+		Optional<InterestRate> lOptInterestRate = interestRateFeignClient.getInterestRates(fixedDeposit.getTenure());
+		BigDecimal lbdInterestRate = lOptInterestRate.get().getRate();
 		lbdInterestRate = lbdInterestRate.setScale(2, RoundingMode.HALF_EVEN);
 		logger.debug("lbdInterestRate:" + lbdInterestRate);
 		fixedDeposit.setRate(lbdInterestRate);
